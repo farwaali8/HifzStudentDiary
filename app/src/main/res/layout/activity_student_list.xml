@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".StudentListActivity">
 
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="372dp"
         android:layout_height="572dp"
         android:layout_marginTop="55dp"
+        android:clickable="true"
         android:layout_marginBottom="47dp"
         app:layout_constraintBottom_toTopOf="@+id/floatingActionButton4"
         app:layout_constraintEnd_toEndOf="parent"

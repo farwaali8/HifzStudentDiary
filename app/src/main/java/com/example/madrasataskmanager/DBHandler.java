@@ -56,22 +56,19 @@ public class DBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public void updateStudent(Student student) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, student.getName());
-        values.put(COLUMN_ROLLNO, student.getRollNo());
-        values.put(COLUMN_CLASS, student.getclass());
 
-        db.update(TABLE_NAME, values, COLUMN_ROLLNO + " = ?", new String[]{student.getRollNo()});
+
+
+
+
+
+    public int deleteStudent(String rollNo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete(TABLE_NAME, COLUMN_ROLLNO + " = ?", new String[]{rollNo});
         db.close();
+        return result;
     }
 
-    public void deleteStudent(String rollNo) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, COLUMN_ROLLNO + " = ?", new String[]{rollNo});
-        db.close();
-    }
 
     public ArrayList<Student> getAllStudents() {
         ArrayList<Student> studentList = new ArrayList<>();
